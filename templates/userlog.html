@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pneumonia Detection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+      .center {
+       margin: auto;
+       width: 60%;
+      padding: 5px;
+}
+      .colcenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 60%;
+      border: dashed;
+}
+      body {
+        background: radial-gradient(ellipse at center, #40546c 0%, #0a0c13 100%);
+        color: white;
+      }
+      input[type=submit], input[type=file]{
+        /* width: 50%; */
+        border:1px solid #ffffff;
+        color: white;
+        background-color: transparent;
+        /* padding:14px 0; */
+        margin: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type=submit]{
+        border:1px solid #ffffff;
+      }
+      input[type=submit]:hover{
+        background-color: #ffffff;
+        color: black;
+      }
+      h3{
+        border-bottom:1px solid #ffffff;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+    </style>
+</head>
+<!-- <body style="background-image: url('static/leaf.jpeg');"> -->
+  <body>
+  <!-- <center> -->
+ 
+    <div class="center">
+      <div>
+        <h2 style="padding-top: 50px; text-align: center;"><img src="https://images.shiksha.com/mediadata/images/1570797731phpmvsqFA.jpg" width="10%">DAYANANDA SAGAR COLLEGE OF ENGINEERING</h2>
+      </div>
+      <h2 style="padding-top: 30px; text-align: center;">PNEUMONIA DETECTION IN CHEST X-RAY USING CNN</h2>
+      <div class="colcenter">
+    <div class="row">
+      <div class="col-sm-12" >
+  <h3 style="padding-top: 30px; text-align: center;">Please Upload Your Files Here...</h3>
+
+  <form action="{{url_for('image')}}" method="POST" style="display: flex;">          
+    <input type="file" id="file" name="filename" required  style="display: flex; margin-right: 70px; margin-left: auto;">
+    <input type="submit" value="Analyse" style="display: flex; margin-right: 50px; margin-left: auto;">
+  </form> <br>
+  </form>
+  {% if (ImageDisplay) %}
+<img src="{{ImageDisplay}}" width="100%">
+{% endif %}
+<br>
+
+{% if (status) %}
+        <p><b>Status: </b>{{status}}</p>
+        {% endif %}
+        {% if (accuracy) %}
+        <p><b>Accuracy: </b>{{accuracy}}</p>
+        {% endif %}
+</div> 
+  </div>
+</div>
+</div>
+<!-- </center> -->
+</body>
+</html>
